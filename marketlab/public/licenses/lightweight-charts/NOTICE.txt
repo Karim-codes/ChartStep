@@ -1,0 +1,6 @@
+TradingView Lightweight Charts™
+Copyright (с) 2025 TradingView, Inc. https://www.tradingview.com/
+
+MarketLab uses Lightweight Charts under the Apache License 2.0.
+The unmodified library is bundled as a dependency. MarketLab implements its own price-region primitive.
+Original NOTICE: https://github.com/tradingview/lightweight-charts/blob/master/NOTICE

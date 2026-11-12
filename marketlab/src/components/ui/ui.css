@@ -1,0 +1,142 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+/* Keep the established simulator reset; utilities are added without global Preflight changes. */
+@theme inline {
+  --color-background: var(--ui-background);
+  --color-foreground: var(--ui-foreground);
+  --color-primary: var(--ui-primary);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--ui-secondary);
+  --color-secondary-foreground: var(--ui-foreground);
+  --color-accent: var(--ui-secondary);
+  --color-accent-foreground: var(--ui-foreground);
+  --color-border: var(--ui-border);
+  --color-input: var(--ui-border);
+  --color-ring: var(--ui-primary);
+  --color-popover: var(--ui-background);
+  --color-popover-foreground: var(--ui-foreground);
+  --color-muted-foreground: var(--ui-muted);
+  --color-destructive: #b96b60;
+  --color-destructive-foreground: #ffffff;
+}
+:root {
+  --ui-background: #fafafa;
+  --ui-foreground: #202127;
+  --ui-primary: #5865ed;
+  --ui-secondary: #eeeff4;
+  --ui-border: #dfe1e8;
+  --ui-muted: #757985;
+}
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: var(--ui-primary);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  min-height: 42px;
+  padding: 10px 17px;
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.4;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+}
+.ui-button[data-variant="outline"] {
+  background: transparent;
+  border-color: var(--ui-border);
+  color: var(--ui-foreground);
+}
+.ui-button[data-variant="secondary"] {
+  background: var(--ui-secondary);
+  color: var(--ui-foreground);
+}
+.ui-button[data-variant="ghost"],
+.ui-button[data-variant="link"] {
+  background: transparent;
+  color: var(--ui-foreground);
+}
+.ui-button[data-size="lg"] {
+  min-height: 48px;
+  padding: 13px 23px;
+  font-size: 14px;
+}
+.ui-button[data-size="sm"] {
+  min-height: 36px;
+  padding: 8px 13px;
+  font-size: 12px;
+}
+.ui-button[data-size="icon"] {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+.ui-button:hover {
+  filter: brightness(1.12);
+}
+.ui-button:focus-visible,
+.ui-input:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 4px;
+}
+.ui-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #07090dd4;
+}
+.ui-sheet-content {
+  position: fixed;
+  z-index: 90;
+  inset: 0 0 0 auto;
+  width: min(88vw, 380px);
+  background: var(--ui-background);
+  color: var(--ui-foreground);
+  padding: 30px;
+  box-shadow: -10px 0 60px #0005;
+}
+.ui-sheet-content[data-side="left"] {
+  inset: 0 auto 0 0;
+}
+.ui-sheet-content[data-side="top"] {
+  inset: 0 0 auto;
+  width: 100%;
+}
+.ui-sheet-content[data-side="bottom"] {
+  inset: auto 0 0;
+  width: 100%;
+}
+.ui-sheet-dismiss {
+  position: absolute;
+  right: 20px;
+  top: 24px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  border-radius: 5px;
+}
+.ui-input {
+  width: 100%;
+  border: 1px solid var(--ui-border);
+  background: var(--ui-background);
+  color: var(--ui-foreground);
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 10px 12px;
+  min-height: 42px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-button,
+  .ui-sheet-content {
+    transition: none;
+  }
+}

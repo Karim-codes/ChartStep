@@ -1,0 +1,1005 @@
+/* ChartStep's workspace uses the same type, ink and blue as the public site.
+   The base sheet owns responsive layout; this sheet owns the shared visual system. */
+:root {
+  font-family: "Inter Variable", sans-serif;
+  --accent: #5966ed;
+  --accent-deep: #434ed0;
+  --accent-soft: #eceeff;
+  --ink: #232631;
+  --muted: #656d7f;
+  --border: #e0e3eb;
+  --surface: #fff;
+  --canvas: #f6f6f8;
+  --surface-soft: #f1f2f7;
+  --focus: #8993ff;
+  --positive: #278268;
+  --negative: #c45e62;
+  background: var(--canvas);
+  color: var(--ink);
+}
+html[data-theme="dark"] {
+  --accent: #7e8aff;
+  --accent-deep: #5966ed;
+  --accent-soft: #252b48;
+  --ink: #edf0f7;
+  --muted: #a6aec1;
+  --border: #343a48;
+  --surface: #1b1e27;
+  --canvas: #12141b;
+  --surface-soft: #242935;
+  --positive: #6bc3a4;
+  --negative: #ef969b;
+  background: var(--canvas);
+  color: var(--ink);
+}
+body {
+  background: var(--canvas);
+}
+.workspace-design {
+  color: var(--ink);
+  background: var(--canvas);
+}
+.workspace-design :is(h1, h2, h3, h4, .brand) {
+  font-family: "Inter Variable", sans-serif;
+}
+.workspace-design button:focus-visible,
+.workspace-design a:focus-visible,
+.workspace-design summary:focus-visible {
+  outline-color: var(--focus);
+}
+.workspace-design :is(input, select, textarea):focus {
+  outline-color: var(--focus);
+}
+.workspace-design :is(input, select, textarea) {
+  accent-color: var(--accent);
+}
+.chartstep-mark {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* A quiet, permanent frame keeps navigation distinct from the learning canvas. */
+.workspace-design .sidebar {
+  background: #101218;
+  border-color: #292d39;
+  color: #f0f1f7;
+  padding-top: 28px;
+}
+.workspace-design .brand {
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: -1px;
+  gap: 10px;
+}
+.workspace-design .brand-symbol {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  padding: 6px;
+  background: #5966ed;
+  color: white;
+}
+.workspace-design .brand-symbol svg {
+  width: 100%;
+  height: 100%;
+  stroke: none;
+}
+.workspace-design .brand small {
+  color: #9ea5b9;
+  font-size: 10px;
+  font-weight: 450;
+  letter-spacing: 0.15px;
+  margin-top: 5px;
+}
+.workspace-design .workspace-select {
+  background: #1b1e28;
+  border-color: #343947;
+  color: #eff1fa;
+  padding: 13px 10px;
+  margin-top: 28px;
+  border-radius: 7px;
+}
+.workspace-design .workspace-select small {
+  color: #a0a8bd;
+  margin-top: 2px;
+}
+.workspace-design .workspace-icon {
+  color: #9faaff;
+}
+.workspace-design .tiny-badge {
+  color: #bdc5ff;
+  border-color: #444c6d;
+  background: #262c43;
+}
+.workspace-design .nav-group {
+  color: #8992a8;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  margin-top: 27px;
+}
+.workspace-design .nav-item {
+  color: #aeb5c8;
+  font-size: 12px;
+  border-radius: 6px;
+  height: 43px;
+  font-weight: 450;
+}
+.workspace-design .nav-item:hover {
+  color: #fff;
+  background: #212631;
+}
+.workspace-design .nav-item.active {
+  color: #fff;
+  background: #414dd3;
+  font-weight: 600;
+}
+.workspace-design .nav-count {
+  border-color: #3e4659;
+  color: #b5bdd4;
+}
+.workspace-design .active-dot {
+  background: #c6ceff;
+}
+.workspace-design .sidebar-note {
+  border-top: 1px solid #303543;
+  border-radius: 0;
+  background: transparent;
+  padding: 18px 6px 0;
+  margin-bottom: 20px;
+  color: #9aa6ff;
+}
+.workspace-design .sidebar-note strong {
+  color: #dce0ee;
+  font-weight: 550;
+}
+.workspace-design .sidebar-note p {
+  color: #959eb5;
+}
+.workspace-design .support-link {
+  color: #aeb6cc;
+}
+.workspace-design .user-row {
+  border-color: #303543;
+  color: #e7eafa;
+}
+.workspace-design .user-row small {
+  color: #959eb5;
+}
+.workspace-design .avatar {
+  background: #2a3148;
+  color: #bfc8ff;
+}
+.workspace-design .user-row .icon-button {
+  color: #a5aec6;
+}
+.workspace-design .topbar {
+  height: 66px;
+  background: var(--surface);
+  border-color: var(--border);
+}
+.workspace-design .breadcrumb {
+  font-size: 12px;
+  color: var(--muted);
+}
+.workspace-design .breadcrumb strong {
+  color: var(--ink);
+  font-weight: 550;
+}
+.workspace-design .topbar-actions {
+  gap: 20px;
+}
+.workspace-design
+  :is(.global-search, .glossary-button, .demo-status, .icon-button) {
+  color: var(--muted);
+}
+.workspace-design .demo-status i {
+  background: var(--accent);
+}
+.workspace-design .global-search {
+  font-size: 11px;
+}
+.workspace-design .global-search kbd {
+  border-color: var(--border);
+}
+.workspace-design .icon-button:hover {
+  background: var(--surface-soft);
+  color: var(--accent);
+}
+.workspace-design .page-content {
+  padding-top: 31px;
+}
+.workspace-design h1 {
+  font-weight: 650;
+  letter-spacing: -1.4px;
+  line-height: 1.18;
+}
+.workspace-design .page-heading {
+  margin-bottom: 29px;
+}
+.workspace-design .page-heading > p,
+.workspace-design .page-heading > div > p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.workspace-design :is(.eyebrow, .section-eyebrow) {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 1.3px;
+}
+.workspace-design .eyebrow > span {
+  background: var(--accent);
+  border-radius: 1px;
+}
+.workspace-design .section-heading h2 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.65px;
+}
+.workspace-design .footer-mark {
+  padding: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 3px;
+}
+.workspace-design .app-footer {
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+/* Shared controls and surfaces, including feedback, journal and account settings. */
+.workspace-design :is(.button, .place-order) {
+  border-radius: 6px;
+  font-weight: 550;
+}
+.workspace-design .button.primary {
+  background: #5966ed;
+  border-color: #5966ed;
+  color: #fff;
+  box-shadow: none;
+}
+.workspace-design .button.primary:hover {
+  background: #4653d6;
+  border-color: #4653d6;
+}
+.workspace-design .button.secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+  box-shadow: none;
+}
+.workspace-design .button.secondary:hover {
+  background: var(--surface-soft);
+  border-color: var(--accent);
+}
+.workspace-design .text-button {
+  color: var(--accent);
+}
+.workspace-design
+  :is(.pill.green, .chapter-pill, .category-tag, .annotation-instruction) {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--accent-soft);
+}
+.workspace-design .chapter-pill > span {
+  background: var(--accent);
+}
+.workspace-design
+  :is(
+    .lesson-hero,
+    .pathway-card,
+    .scenario-card,
+    .pricing-card,
+    .panel,
+    .pathway-detail,
+    .library-controls,
+    .lesson-panel,
+    .replay-chart-panel,
+    .journal-prompt,
+    .progress-stats,
+    .modal,
+    .empty-state
+  ) {
+  border-color: var(--border);
+  background: var(--surface);
+  border-radius: 9px;
+  box-shadow: none;
+}
+.workspace-design :is(.pathway-card, .scenario-card):hover {
+  border-color: var(--accent);
+  box-shadow: 0 5px 18px #171e3810;
+  transform: translateY(-2px);
+}
+.workspace-design
+  :is(
+    .scenario-card > p,
+    .pathway-copy > p,
+    .lesson-content > p,
+    .challenge-box > p,
+    .decision-option,
+    .journal-entry p,
+    .modal-intro,
+    .help-flow p,
+    .setting-row p
+  ) {
+  color: var(--muted);
+}
+.workspace-design :is(.journal-form, .order-form) label {
+  color: var(--muted);
+}
+.workspace-design
+  :is(
+    .journal-form,
+    .order-form,
+    .library-controls,
+    .scenario-switch,
+    .balance-picker
+  )
+  :is(input, select, textarea) {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+  border-radius: 5px;
+}
+.workspace-design :is(.pill, .chapter-pill, .tiny-badge) {
+  border-radius: 4px;
+}
+.workspace-design .lesson-hero {
+  border-top: 3px solid #5966ed;
+}
+.workspace-design .hero-copy {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.workspace-design .hero-copy h2 {
+  font-weight: 650;
+  letter-spacing: -1px;
+}
+.workspace-design .hero-copy > p:not(.lesson-kicker) {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.workspace-design .hero-chart {
+  background: var(--surface);
+}
+.workspace-design .hero-chart:before {
+  display: none;
+}
+.workspace-design .hero-chart-label {
+  color: var(--muted);
+}
+.workspace-design .journey-panel {
+  background: var(--surface-soft);
+  border-color: var(--border);
+  border-radius: 9px;
+}
+.workspace-design .journey-panel h3 {
+  color: var(--ink);
+  font-weight: 600;
+}
+.workspace-design .journey-panel :is(p, small, .section-eyebrow) {
+  color: var(--muted);
+}
+.workspace-design .journey-step strong {
+  color: var(--ink);
+}
+.workspace-design .journey-step > span {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+.workspace-design .journey-step.current > span {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+.workspace-design .journey-step:after {
+  background: var(--border);
+}
+.workspace-design .pathway-visual {
+  background: var(--surface-soft);
+}
+.workspace-design .practice-banner {
+  background: #191d2d;
+  color: #fff;
+  border-color: #303850;
+  border-radius: 9px;
+}
+.workspace-design .practice-banner h3 {
+  color: #f4f5fb;
+}
+.workspace-design .practice-banner p {
+  color: #aeb9d3;
+}
+.workspace-design .practice-banner .button {
+  border-color: #5360db;
+  background: #5966ed;
+  color: white;
+}
+.workspace-design .practice-banner .practice-icon {
+  color: #a0acff;
+  background: #2c3453;
+}
+.workspace-design
+  :is(.filter-chip.active, .filter-chip.selected, .tab-button.active) {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.workspace-design .pricing-card.featured {
+  border: 1px solid var(--accent);
+  background: var(--surface);
+}
+.workspace-design .plan-price {
+  color: var(--ink);
+  letter-spacing: -1px;
+}
+.workspace-design .progress-stats strong {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.workspace-design .progress-stats > div {
+  border-color: var(--border);
+}
+.workspace-design .appearance-choices > button.selected {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.workspace-design .toast {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--accent);
+  box-shadow: 0 8px 40px #12182925;
+}
+.workspace-design :is(.positive, .position-row .positive) {
+  color: var(--positive);
+}
+.workspace-design :is(.negative, .position-row .negative) {
+  color: var(--negative);
+}
+
+/* A denser trading header puts the chart and ticket ahead of setup details. */
+.workspace-design .workspace-titlebar {
+  align-items: flex-end;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.workspace-design .workspace-titlebar .back-link {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 13px;
+}
+.workspace-design .workspace-title {
+  gap: 12px;
+  align-items: center;
+}
+.workspace-design .workspace-title h1 {
+  font-size: 30px;
+  letter-spacing: -1.1px;
+}
+.workspace-design .workspace-titlebar p {
+  margin-top: 9px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.workspace-design .workspace-title .pill {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 0;
+  font-size: 9px;
+  padding: 6px 8px;
+}
+.workspace-design .scenario-switch {
+  font-size: 10px;
+  color: var(--muted);
+}
+.workspace-design .scenario-switch select {
+  min-height: 40px;
+  font-size: 12px;
+  max-width: 270px;
+}
+.workspace-design
+  .scenario-switch:has(select[aria-label="Practice instrument"]) {
+  max-width: 270px;
+}
+.workspace-design .practice-setup {
+  padding: 12px 0;
+  gap: 10px 16px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  margin-bottom: 18px;
+}
+.workspace-design .market-mode-toggle {
+  background: var(--surface-soft);
+  border-color: var(--border);
+  border-radius: 6px;
+  padding: 3px;
+}
+.workspace-design .market-mode-toggle > button {
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 33px;
+  padding: 7px 10px;
+}
+.workspace-design .market-mode-toggle > button.selected {
+  color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 1px 4px #101c3612;
+}
+.workspace-design .stream-dot {
+  background: var(--accent);
+}
+.workspace-design .balance-picker {
+  color: var(--muted);
+  font-size: 10px;
+  gap: 8px;
+}
+.workspace-design .balance-picker select {
+  min-height: 38px;
+  padding: 7px 9px;
+  font-size: 11px;
+}
+.workspace-design .practice-setup > p {
+  color: var(--muted);
+  margin-top: 0;
+  font-size: 10px;
+  text-align: left;
+  line-height: 1.65;
+}
+.workspace-design .fresh-market {
+  font-size: 11px;
+  min-height: 37px;
+}
+.workspace-design .simulation-notice {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.7px;
+  margin-bottom: 12px;
+}
+.workspace-design .simulation-notice > button {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0;
+}
+.workspace-design .simulation-notice i {
+  background: var(--accent);
+}
+.workspace-design .workspace-grid {
+  gap: 20px;
+}
+.workspace-design .replay-chart-panel {
+  overflow: hidden;
+}
+.workspace-design .chart-top {
+  padding: 15px 16px;
+  border-color: var(--border);
+}
+.workspace-design .chart-symbol {
+  color: var(--ink);
+  font-size: 12px;
+}
+.workspace-design .market-name {
+  color: var(--muted);
+  font-size: 10px;
+}
+.workspace-design .instrument-dot {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 5px;
+}
+.workspace-design .chart-interval {
+  color: var(--muted);
+  border-color: var(--border);
+}
+.workspace-design :is(.synthetic-label, .chart-ohlc, .chart-ohlc b) {
+  color: var(--muted);
+}
+.workspace-design .synthetic-label i {
+  background: var(--accent);
+}
+.workspace-design .chart-toolbar {
+  border-color: var(--border);
+  padding: 7px 10px;
+}
+.workspace-design .chart-toolbar button {
+  color: var(--muted);
+  font-size: 10px;
+  border-radius: 4px;
+}
+.workspace-design .chart-toolbar button:hover,
+.workspace-design .chart-toolbar button.selected {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.workspace-design .chart-caption {
+  color: var(--muted);
+  border-color: var(--border);
+  font-size: 9px;
+}
+.workspace-design .chart-caption a {
+  color: var(--muted);
+}
+.workspace-design .replay-controls {
+  background: var(--surface);
+  border-color: var(--border);
+  padding: 13px 16px;
+}
+.workspace-design .replay-controls .play-button {
+  background: #5966ed;
+  color: white;
+}
+.workspace-design
+  .replay-controls
+  :is(.icon-button, .replay-count, .replay-utc, .speed-select) {
+  color: var(--muted);
+}
+.workspace-design .replay-progress {
+  background: var(--surface-soft);
+  height: 3px;
+}
+.workspace-design .replay-progress > span {
+  background: var(--accent);
+}
+.workspace-design .replay-helper {
+  color: var(--muted);
+  font-size: 10px;
+}
+.workspace-design .workspace-context {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.workspace-design .workspace-context h3 {
+  color: var(--ink);
+}
+.workspace-design .workspace-context p {
+  color: var(--muted);
+}
+.workspace-design .lesson-panel-tabs {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.workspace-design .lesson-panel-tabs > button {
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 48px;
+}
+.workspace-design .lesson-panel-tabs > button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.workspace-design .lesson-content {
+  padding: 24px;
+}
+.workspace-design .lesson-content h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+}
+.workspace-design .lesson-content > p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.workspace-design .lesson-step-label {
+  color: var(--accent);
+}
+.workspace-design .trading-content .account-values {
+  background: var(--surface-soft);
+  border: 0;
+  border-radius: 6px;
+  padding: 17px;
+  gap: 17px 12px;
+}
+.workspace-design .account-values span {
+  color: var(--muted);
+  font-size: 10px;
+}
+.workspace-design .account-values strong {
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 550;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+.workspace-design .account-values > div:nth-child(n + 3) strong {
+  font-size: 14px;
+}
+.workspace-design .account-values .positive {
+  color: var(--positive);
+}
+.workspace-design .account-values .negative {
+  color: var(--negative);
+}
+.workspace-design .quote-strip {
+  color: var(--muted);
+}
+.workspace-design .quote-strip strong {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 550;
+}
+.workspace-design .side-toggle {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+.workspace-design .side-toggle button {
+  color: var(--muted);
+  font-size: 11px;
+}
+.workspace-design .side-toggle button.selected {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.workspace-design .side-toggle button.selected.sell {
+  color: var(--negative);
+  background: #c45e6212;
+}
+.workspace-design .order-form {
+  gap: 17px;
+}
+.workspace-design .order-form label {
+  font-size: 11px;
+}
+.workspace-design .order-form label > span {
+  color: var(--muted);
+  font-size: 9px;
+}
+.workspace-design .order-form input {
+  height: 40px;
+  padding: 10px;
+  font-size: 12px;
+  margin-top: 7px;
+}
+.workspace-design .risk-estimate {
+  background: var(--surface-soft);
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+}
+.workspace-design .risk-estimate > div {
+  font-size: 10px;
+}
+.workspace-design .risk-estimate strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.workspace-design .place-order {
+  background: #5966ed;
+  color: #fff;
+  font-size: 12px;
+  min-height: 43px;
+}
+.workspace-design .place-order:hover {
+  background: #4653d6;
+}
+.workspace-design .fill-note {
+  color: var(--muted);
+  font-size: 9px;
+}
+.workspace-design .active-positions {
+  background: var(--surface);
+  border-color: var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 5px;
+  padding: 15px;
+}
+.workspace-design .active-positions h3 {
+  color: var(--ink);
+  font-size: 12px;
+}
+.workspace-design .active-positions h3 > span {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.workspace-design .position-row {
+  border-color: var(--border);
+}
+.workspace-design .position-row :is(strong, small) {
+  color: var(--muted);
+}
+.workspace-design .active-positions .close-position {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+  font-size: 11px;
+}
+.workspace-design .active-positions .close-position:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.workspace-design .compact-positions {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.workspace-design .position-explainer {
+  color: var(--muted);
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+.workspace-design .position-explainer strong {
+  color: var(--ink);
+}
+.workspace-design .annotation-entry {
+  background: var(--surface-soft);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+/* Chart-only theme override also works independently of the workspace theme. */
+.dark-chart,
+.dark-chart .chart-component {
+  background: #171920;
+  color: #a6aec1;
+}
+.dark-chart .chart-symbol strong {
+  color: #edf0f7;
+}
+.dark-chart .chart-ohlc b {
+  color: #a6aec1;
+}
+.dark-chart :is(.chart-toolbar, .chart-caption) {
+  border-color: #343a48;
+}
+.dark-chart .chart-toolbar button:hover,
+.dark-chart .chart-toolbar button.selected {
+  background: #252b48;
+  color: #a4adff;
+}
+.dark-chart .instrument-dot {
+  background: #252b48;
+  color: #a4adff;
+}
+
+@media (min-width: 1600px) {
+  .workspace-design .page-content {
+    padding-top: 34px;
+  }
+  .workspace-design .workspace-grid {
+    grid-template-columns: minmax(0, 1fr) 350px;
+  }
+}
+@media (max-width: 1300px) {
+  .workspace-design .workspace-titlebar {
+    align-items: flex-start;
+  }
+  .workspace-design .workspace-title h1 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1000px) and (min-width: 601px) {
+  .workspace-design .workspace-titlebar {
+    flex-wrap: wrap;
+  }
+  .workspace-design .scenario-switch {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .workspace-design .topbar {
+    height: 60px;
+  }
+  .workspace-design .page-content {
+    padding-top: 25px;
+  }
+  .workspace-design h1 {
+    font-size: 29px;
+    letter-spacing: -1.2px;
+  }
+  .workspace-design .section-heading h2 {
+    font-size: 20px;
+  }
+  .workspace-design .workspace-titlebar {
+    gap: 17px;
+    margin-bottom: 18px;
+  }
+  .workspace-design .workspace-title {
+    gap: 9px;
+  }
+  .workspace-design .workspace-title h1 {
+    font-size: 27px;
+  }
+  .workspace-design .workspace-titlebar p {
+    font-size: 12px;
+  }
+  .workspace-design .scenario-switch {
+    max-width: 100% !important;
+  }
+  .workspace-design .scenario-switch select[aria-label="Practice instrument"] {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    font-size: 12px;
+  }
+  .workspace-design .practice-setup {
+    padding: 13px 0;
+    gap: 12px;
+  }
+  .workspace-design .market-mode-toggle {
+    width: 100%;
+  }
+  .workspace-design .market-mode-toggle > button {
+    flex: 1;
+    font-size: 11px;
+    padding: 8px 7px;
+    min-height: 37px;
+  }
+  .workspace-design .practice-setup .balance-picker {
+    width: auto;
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+  .workspace-design .balance-picker {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .workspace-design .balance-picker select {
+    max-width: 143px;
+    font-size: 11px;
+  }
+  .workspace-design .practice-setup > p {
+    font-size: 10px;
+  }
+  .workspace-design .fresh-market {
+    font-size: 11px;
+    padding: 8px;
+  }
+  .workspace-design .simulation-notice {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+  .workspace-design .chart-top {
+    padding: 13px 11px;
+  }
+  .workspace-design .chart-toolbar {
+    padding: 6px 7px;
+  }
+  .workspace-design .chart-toolbar button {
+    min-height: 36px;
+  }
+  .workspace-design .chart-caption {
+    font-size: 9px;
+  }
+  .workspace-design .lesson-content {
+    padding: 23px 19px;
+  }
+  .workspace-design .lesson-panel-tabs > button {
+    font-size: 12px;
+    min-height: 50px;
+  }
+  .workspace-design .lesson-content > p {
+    font-size: 13px;
+  }
+  .workspace-design .order-form input {
+    height: 44px;
+    font-size: 14px;
+  }
+  .workspace-design .order-form label {
+    font-size: 12px;
+  }
+  .workspace-design .place-order {
+    min-height: 47px;
+    font-size: 13px;
+  }
+  .workspace-design .active-positions .close-position {
+    min-height: 42px;
+    font-size: 12px;
+  }
+  .workspace-design .mobile-practice-dock {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: 0 -3px 15px #12182910;
+  }
+  .workspace-design .mobile-practice-dock > button {
+    color: var(--muted);
+  }
+}
